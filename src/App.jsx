@@ -24,11 +24,9 @@ let CalcButtons = [
 
 function App() {
   const [value, setValue] = useState('');
-  const [style, setStyle] = useState({ justifyContent: 'flex-start' });
+  const [style, setStyle] = useState({ justifyContent: '' });
   const [styles, setStyles] = useState({
     style1: false,
-    style2: false,
-    style3: false,
   });
   const Screen = () => {
     return (
@@ -94,35 +92,6 @@ function App() {
     return (
       <div className="grid-container" style={gridContainerStyle()}>
         {CalcButtons.map((button) => {
-          // let [deleteButtonStyle, setdeleteButtonStyle] = useState({
-          //   backgroundColor: button == 'DEL' ? '#647299' : '',
-          //   borderBottom: button == 'DEL' ? '4px solid #414E71' : '',
-          //   color: button == 'DEL' ? 'white' : '',
-          // });
-          // let deleteButtonHover = () => {
-          //   if (button === 'DEL') {
-          //     console.log('delete 1');
-          //     setdeleteButtonStyle((prevStyle) => {
-          //       return {
-          //         ...prevStyle,
-          //         backgroundColor: 'DEL' ? '#A2B3E2' : '',
-          //       };
-          //     });
-          //   }
-          // };
-          // let deleteMouseOut = () => {
-          //   if (button === 'DEL') {
-          //     ('use strict');
-          //     console.log('delete');
-          //     setdeleteButtonStyle((prevStyle) => {
-          //       return {
-          //         ...prevStyle,
-          //         backgroundColor: 'DEL' ? '#647299' : '',
-          //       };
-          //     });
-          //   }
-          // };
-          //buttons styling
           function buttonStyling() {
             if (styles.style2 === true) {
               //delete button styling
@@ -173,9 +142,7 @@ function App() {
                 }
               }}
               style={buttonStyling()}
-              // style={deleteButtonStyle}
-              // onMouseEnter={() => deleteButtonHover()}
-              // onMouseLeave={() => deleteMouseOut()}
+
             >
               {button}
             </button>
@@ -251,15 +218,6 @@ function App() {
         <div className="top" style={containerStyle()}>
           <div className="calc-text-container">
             <p className="calc">calc</p>
-          </div>
-          <div className="switch-container">
-            <div className="num">
-              <ul>
-              </ul>
-            </div>
-            <div className="switch" onClick={() => changeStyle()} style={style}>
-              <div className="toggler" style={togglerStyle()}></div>
-            </div>
           </div>
         </div>
         <Screen />
